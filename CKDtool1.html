@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<script type = "text/JavaScript">
+
+ function result() {
+	if (document.getElementById('10to40').checked) {var age_value = document.getElementById('10to40').value;}
+	if (document.getElementById('40to60').checked) {var age_value = document.getElementById('40to60').value;}
+	if (document.getElementById('a60').checked) {var age_value = document.getElementById('a60').value;}
+
+	if (document.getElementById('gmale').checked) {var gn_value = document.getElementById('gmale').value;}
+	if (document.getElementById('gfmale').checked) {var gn_value = document.getElementById('gfmale').value;}
+
+	if (document.getElementById('rw').checked) {var rc_value = document.getElementById('rw').value;}
+	if (document.getElementById('rb').checked) {var rc_value = document.getElementById('rb').value;}
+	if (document.getElementById('ro').checked) {var rc_value = document.getElementById('ro').value;}
+   	
+	if (document.getElementById('gmale').checked) {var gen_value = document.getElementById('gmale').className;}
+	if (document.getElementById('gfmale').checked) {var gen_value = document.getElementById('gfmale').className;}
+	 
+              
+		 
+                // user inputs
+                var height = Number(document.getElementById("height").value);
+                var heightunits = document.getElementById("heightunits").value;
+                var weight = Number(document.getElementById("weight").value);
+                var weightunits = document.getElementById("weightunits").value;
+        
+        
+                //Convert all units to metric
+                if (heightunits == "inches") height /= 39.3700787;
+                if (weightunits == "lb") weight /= 2.20462;
+        
+                //Perform calculation
+        
+                // var BMI = weight /Math.pow(height, 2)*10000;
+                var BMI = Math.round(weight / Math.pow(height, 2));
+        
+                //Display result of calculation
+                document.getElementById("output").innerText = Math.round(BMI * 100) / 100;
+        
+                var output = Math.round(BMI * 100) / 100
+                var bmi_value;
+                if (output < 18.5)
+                    {document.getElementById("comment").innerText = "Underweight";
+			bmi_value=0;}
+                if (output >= 18.5 && output <= 25)
+                    {document.getElementById("comment").innerText = "Normal";
+			bmi_value=0;}
+                if (output > 25 && output < 30)
+                    {document.getElementById("comment").innerText = "Overweight";
+			bmi_value=0;}
+                if (output >= 30)
+		{if (document.getElementById('gmale').checked)
+                    {document.getElementById("comment").innerText = "Obese";
+			bmi_value=1;}}
+ 		if (output >= 30 && output < 35)
+		{if (document.getElementById('gfmale').checked)
+                    {document.getElementById("comment").innerText = "Overweight";
+			bmi_value=0;}}
+		if (output >= 35)
+		{if (document.getElementById('gfmale').checked)
+                    {document.getElementById("comment").innerText = "Obese";
+			bmi_value=1;}}
+		
+               
+             
+               
+   
+	if (document.getElementById('ac1').checked) {var ac_value = document.getElementById('ac1').value;}
+	if (document.getElementById('ac2').checked) {var ac_value = document.getElementById('ac2').value;}
+
+	if (document.getElementById('sm1').checked) {var sm_value = document.getElementById('sm1').value;}
+	if (document.getElementById('sm2').checked) {var sm_value = document.getElementById('sm2').value;}
+
+	if (document.getElementById('heart1').checked) {var hea_value = document.getElementById('heart1').value;}
+	if (document.getElementById('heart2').checked) {var hea_value = document.getElementById('heart2').value;}
+	
+	if (document.getElementById('bp1').checked) {var bp_value = document.getElementById('bp1').value;}
+	if (document.getElementById('bp2').checked) {var bp_value = document.getElementById('bp2').value;}
+	if (document.getElementById('bp3').checked) {var bp_value = document.getElementById('bp2').value;}
+
+	if (document.getElementById('diab1').checked) {var di_value = document.getElementById('diab1').value;}
+	if (document.getElementById('diab2').checked) {var di_value = document.getElementById('diab2').value;}
+	if (document.getElementById('diab3').checked) {var di_value = document.getElementById('diab3').value;}
+
+	if (document.getElementById('chol1').checked) {var ch_value = document.getElementById('chol1').value;}
+	if (document.getElementById('chol2').checked) {var ch_value = document.getElementById('chol2').value;}
+
+document.getElementById("output1").innerText = Number(bmi_value) + Number(di_value) + Number(age_value) + Number(gn_value)+ Number(rc_value) + Number(ac_value) + Number(sm_value) + Number(hea_value)+ Number(bp_value)+ Number(ch_value);
+var ckd = Number(bmi_value) + Number(di_value) + Number(age_value) + Number(gn_value)+ Number(rc_value) + Number(ac_value) + Number(sm_value) + Number(hea_value)+ Number(bp_value)+ Number(ch_value);
+
+	
+if (document.getElementById('10to40').checked)
+	{if (ckd >= 6)
+				{document.getElementById("output3").innerText = "You are more likely to get a Chronic Kidney Disease";}
+	else 
+	{document.getElementById("output3").innerText = "You are less likely to get a Chronic Kidney Disease";}}
+
+	if (document.getElementById('40to60').checked)
+	{if (ckd >= 6)
+		{document.getElementById("output3").innerText = "You are more likely to get a Chronic Kidney Disease";}
+	else 
+	{document.getElementById("output3").innerText = "You are less likely to get a Chronic Kidney Disease"}}
+
+	if (document.getElementById('a60').checked)
+	{if (ckd >= 6)
+			{document.getElementById("output3").innerText = "You are more likely to get a Chronic Kidney Disease";}
+	else 
+	{document.getElementById("output3").innerText = "You are less likely to get a Chronic Kidney Disease";}}
+	
+
+      
+         }
+
+        
+
+</script>
+</head>
+<head>
+<style>
+body {
+  background-image: url("https://www.mckinsey.com/~/media/McKinsey/Industries/Healthcare%20Systems%20and%20Services/Our%20Insights/The%20silent%20shapers%20of%20healthcare%20services/hero-the-silent-shapers-of-healthcare-services.ashx");
+  background-repeat: no-repeat;
+  background-position:bottom;
+  
+}
+</head>
+</style>
+
+
+<body>
+<form name="details">
+  <div class="container">
+
+    <h1>Chronic Kidney Disease Finder</h1>
+    <p>Please fill in this form.</p>
+    <hr>
+<table width = "100%">
+   <tr><th></th><th align="Right"><h3>Personal Details</h3></th></tr>
+	
+<tr>
+		<td align="Left" valign="Top"><label for="Age"><b>Your Age</b></label><br>
+		<input type="radio" name="Age" Id="10to40" value="1" required> Between 20 to 39<br>
+		<input type="radio" name="Age" Id="40to60" value="2"> Between 40 to 59<br>
+		<input type="radio" name="Age" Id="a60" value="3"> Above 60</p></td>
+
+   
+
+              <td align="Left" valign="Top"><b>Select your Gender</b><br>     
+		<input type="radio" name="gender" Id="gmale" class="Male" value="1" required>Male<br>
+		<input type="radio" name="gender" Id="gfmale" class="Female" value="1">Female</td>
+		
+
+   
+
+             <td align="Left" valign="Top"><b>Select your Race</b><br>
+                <input type="radio" name="race" Id="rw" value="3" required> White/Hispa <br>
+		<input type="radio" name="race" Id="rb" value="2"> Black <br>
+		<input type="radio" name="race" Id="ro" value="1"> Other</td>
+
+    <td align="Left" valign="Top">
+        <p><b>Enter your height: </b><input type="text" id="height"/>
+            <select type="multiple" id="heightunits">
+                <option value="metres" selected="selected">metres</option>
+                <option value="inches">inches</option>
+            </select>
+             </p>
+        <p><b>Enter your weight: </b><input type="text" id="weight"/>
+            <select type="multiple" id="weightunits">
+                <option value="kg" selected="selected">kilograms</option>
+                <option value="lb">pounds</option>
+            </select>
+        </p></td></tr></table>
+  <table width = "100%">
+  <tr><th></th><th align="Center"><h3>Health Questions</h3></th></tr>        
+<tr>
+ <td align="Left" valign="Top"><label for="Activity"><b>Do you Exercise?</b></label>
+    <input type="radio" name="ac" Id="ac1" value="0"> Yes
+	<input type="radio" name="ac" Id="ac2" value="1"> No
+	</td>
+
+<td align="Left" valign="Top"><label for="smoke"><b>Do you Smoke?</b></label>
+    <input type="radio" name="sm" Id="sm1" value="1"> Yes
+	<input type="radio" name="sm" Id="sm2" value="0"> No
+	</td>
+
+<td align="Left" valign="Top"><label for="diab"><b>Are you Diabetic?</b></label>
+    <input type="radio" name="diab" Id="diab1" value="1"> Yes
+	<input type="radio" name="diab" Id="diab2" value="0"> No
+<input type="radio" name="diab" Id="diab3" value="0"> Don't know</td></tr>
+	
+<tr><td align="Left" valign="Top"><label for="heart"><b>Are you a Heart Patient?</b></label>
+    <input type="radio" name="heart" Id="heart1" value="1"> Yes
+	<input type="radio" name="heart" Id="heart2" value="0"> No</td>
+	
+<td align="Left" valign="Top"><label for="bp"><b>Do you have high BP?</b></label>
+    <input type="radio" name="bp" Id="bp1" value="1"> Yes
+	<input type="radio" name="bp" Id="bp2" value="0"> No
+<input type="radio" name="bp" Id="bp3" value="0"> Don't know</td>
+	
+<td align="Left" valign="Top"><label for="chol"><b>Do you have high Cholestrol?</b></label>
+    <input type="radio" name="chol" Id="chol1" value="1"> Yes
+	<input type="radio" name="chol" Id="chol2" value="0"> No</td></tr></table>
+	<br>
+<div align="center">
+ <input type="Button" value="Result" onclick="result();">  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp &nbsp &nbsp <input type="Reset" value="Reset">
+       <h3>Your BMI is: <span id="output"></span><br>
+        This means you are: <span Id="comment"> </span> <br><br> CKD Score: <span id="output1"></span><br>
+	<span id="output3"></span></h3>
+
+</div>
+</form>
+</div>
+</body>
+</html>
